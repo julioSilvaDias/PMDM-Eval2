@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">EjercicioROOM</string>
+    <string name="btnTextAnaidir">Añadir</string>
+    <string name="btnTextBorrar">Borrar</string>
+    <string name="btnTextReproducir">Reproducir</string>
+    <string name="btnTextModificar">Modificar</string>
+    <string name="txtTitulo">Titulo</string>
+    <string name="txtAutor">Autor</string>
+    <string name="txtUrl">URL</string>
+    <string name="txtId">ID</string>
+    <string name="btnOk">OK</string>
 </resources>
