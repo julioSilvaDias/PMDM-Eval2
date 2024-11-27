@@ -3,6 +3,8 @@
     <string name="btnTextAnaidir">Añadir</string>
     <string name="btnTextBorrar">Borrar</string>
     <string name="btnTextReproducir">Reproducir</string>
+    <string name="btnTextCancelarBorrado">Cancelar Borrado</string>
+    <string name="btnTextCancelarModificado">Cancelar Modificado</string>
     <string name="btnTextModificar">Modificar</string>
     <string name="txtTitulo">Titulo</string>
     <string name="txtAutor">Autor</string>

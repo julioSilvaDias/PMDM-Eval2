@@ -36,19 +36,28 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_ADD_SONG)
         }
 
-        val btnBorrar = findViewById<Button>(R.id.btnBorrar)
+        val btnBorrar =
 
-        btnBorrar.setOnClickListener {
-            if(ismodoModificado){
-                Toast.makeText(
-                    this@MainActivity,
-                    "No puedes borrar mientras estas modificando.",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
+            findViewById<Button>(R.id.btnBorrar).apply {
+                setOnClickListener {
+
+                    if (ismodoModificado) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "No puedes borrar mientras estas modificando.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@setOnClickListener
+                    }
+                    ismodoBorrado = !ismodoBorrado
+
+                    text =
+                        if (ismodoBorrado) getString(R.string.btnTextCancelarBorrado) else getString(R.string.btnTextBorrar)
+
+                    configLisView()
+
+                }
             }
-            cambiarModoBorrado(btnBorrar)
-        }
 
         findViewById<Button>(R.id.btnModificar).apply {
             setOnClickListener {
@@ -62,7 +71,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 ismodoModificado = !ismodoModificado
-                text = if (ismodoModificado) "Cancelar Modificar" else "Modificar"
+                text =
+                    if (ismodoModificado) getString(R.string.btnTextCancelarModificado) else getString(
+                        R.string.btnTextModificar
+                    )
                 configLisView()
             }
         }
@@ -86,34 +98,22 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun cambiarModoBorrado(btnBorrar: Button) {
-        ismodoBorrado = !ismodoBorrado
-        if (ismodoBorrado) {
-            btnBorrar.text = getString(R.string.btnTextBorrar)
-        } else {
-            btnBorrar.text = getString(R.string.btnTextReproducir)
-        }
-
-        configLisView()
-
-    }
-
     private fun configLisView() {
         listView.setOnItemClickListener { parent, view, position, id ->
             val cancionSeleccionada = cancionesAdapter.getItem(position)
             cancionSeleccionada?.let {
                 if (ismodoBorrado) {
                     eliminarCancion(it)
-                } else if(ismodoModificado){
+                } else if (ismodoModificado) {
                     modificarCancion(it)
-                }else{
+                } else {
                     reproducir(it.URL)
                 }
             }
         }
     }
 
-    private fun modificarCancion(cancion : Canciones){
+    private fun modificarCancion(cancion: Canciones) {
         val intent = Intent(this, MainActivity2::class.java)
         intent.putExtra("isEditing", true)
         intent.putExtra("id", cancion.id)
