@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.ejercicioroom.logica.bbdd.MyRoomDataBase
 import com.example.ejercicioroom.logica.entity.Canciones
+import com.example.myapplication.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         cancionesAdapter = CancionesAdapter(this, emptyList())
         listView.adapter = cancionesAdapter
 
-        val btnAnaidir = findViewById<Button>(R.id.btnAnadir).setOnClickListener {
+        findViewById<Button>(R.id.btnAnadir).setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivityForResult(intent, REQUEST_ADD_SONG)
         }
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             cambiarModoBorrado(btnBorrar)
         }
 
-        val btnModificar = findViewById<Button>(R.id.btnModificar).apply {
+        findViewById<Button>(R.id.btnModificar).apply {
             setOnClickListener {
                 if (ismodoBorrado) {
                     Toast.makeText(

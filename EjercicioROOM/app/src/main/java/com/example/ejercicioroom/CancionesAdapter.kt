@@ -9,6 +9,7 @@ import android.view.ViewParent
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.ejercicioroom.logica.entity.Canciones
+import com.example.myapplication.R
 
 class CancionesAdapter(
     private val context: Context,
