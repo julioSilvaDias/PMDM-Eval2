@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_ADD_SONG)
         }
 
-        val btnBorrar =
-
             findViewById<Button>(R.id.btnBorrar).apply {
                 setOnClickListener {
 

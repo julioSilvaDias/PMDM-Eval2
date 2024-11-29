@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CapturaImage_Video</string>
+    <string name="btnSacarFoto">Sacar Foto</string>
+    <string name="btnGrabarVideo">Grabar Video</string>
+</resources>
